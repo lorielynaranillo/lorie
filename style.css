@@ -1,0 +1,804 @@
+/* =========================
+   GOOGLE FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* =========================
+   RESET & GLOBAL
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f0f1a;
+    color: white;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #ff4ecd, #7a4cff);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+/* =========================
+   HOME SECTION
+========================= */
+.home {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.glow-box {
+    padding: 40px;
+    border-radius: 20px;
+    animation: glow 3s infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 20px #ff4ecd; }
+    to { box-shadow: 0 0 40px #7a4cff; }
+}
+
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 4px solid #ff4ecd;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.glow-text {
+    font-size: 36px;
+    color: #ff4ecd;
+    text-shadow: 0 0 15px #ff4ecd;
+}
+
+.social-icons {
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 22px;
+    margin: 0 10px;
+    transition: 0.3s;
+}
+
+.social-icons a:hover {
+    color: #ff4ecd;
+    transform: scale(1.3);
+}
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #ff4ecd;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   ACHIEVEMENTS SECTION
+========================= */
+#achievements {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* FIXED 2 COLUMN DESKTOP */
+    gap: 40px;
+    justify-items: center;
+}
+
+.achievement-item {
+    background: #1b1b2f;
+    padding: 20px;
+    max-width: 450px;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 12px rgba(255,78,205,0.3);
+    transition: 0.3s ease;
+}
+
+.achievement-item p {
+    color: #fff;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.achievement-item img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.achievement-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ff4ecd;
+}
+
+/* MOBILE RESPONSIVENESS */
+@media (max-width: 768px) {
+    .achievements-grid {
+        grid-template-columns: 1fr; /* SINGLE COLUMN MOBILE */
+    }
+}
+
+/* =========================
+   PROJECTS SECTION
+========================= */
+#projects {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.album-note {
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.album-tabs label {
+    padding: 12px 25px;
+    margin: 5px;
+    border-radius: 30px;
+    background: #1b1b2f;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(255,78,205,0.4);
+    transition: 0.3s;
+}
+
+.album-tabs label:hover {
+    background: #ff4ecd;
+    box-shadow: 0 0 20px #ff4ecd;
+}
+
+.album-tabs input {
+    display: none;
+}
+
+.album-content {
+    display: none;
+    margin-top: 40px;
+}
+
+#picsart:checked ~ .picsart,
+#ibis:checked ~ .ibis,
+#canva:checked ~ .canva {
+    display: block;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+}
+/* Ibis Paint: 2 columns */
+.album-content.ibis .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Canva: 2 columns (since may 2 lang na pics) */
+.album-content.canva .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Comments: 3 columns */
+#comments .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+.project-item {
+    background: #1b1b2f;
+    border-radius: 18px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(255,78,205,0.3);
+    transition: 0.4s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 30px #ff4ecd;
+}
+
+.project-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.project-item figcaption {
+    padding: 12px;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+
+.project-item:hover figcaption {
+    color: #ff4ecd;
+}
+
+/* SHOW MORE BUTTON */
+.more-btn {
+    display: inline-block;
+    margin: 30px auto;
+    padding: 12px 28px;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff4ecd, #7a4cff);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(255,78,205,0.5);
+    transition: 0.3s;
+}
+
+.more-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 25px #ff4ecd;
+}
+
+#more-ibis {
+    display: none;
+}
+
+.more-gallery {
+    display: none;
+    margin-top: 40px;
+    animation: fadeSlide 0.8s ease;
+}
+
+#more-ibis:checked ~ .more-gallery {
+    display: block;
+}
+
+.show-less {
+    display: none;
+}
+
+#more-ibis:checked ~ .show-more { display: none; }
+#more-ibis:checked ~ .show-less { display: inline-block; }
+
+/* COLLAGE */
+.more-gallery.collage img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.more-gallery.collage img:hover {
+    transform: scale(1.05);
+}
+
+.collage-row {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.collage-row.four {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.collage-row.three {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 80%;
+    margin: 0 auto 12px;
+}
+
+/* FADE UP ANIMATION */
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* =========================
+   TOOLS SECTION
+========================= */
+#tools {
+    margin-top: 100px;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.tools-note {
+    color: #aaa;
+    margin-bottom: 50px;
+    font-size: 15px;
+    font-style: italic;
+}
+
+/* GRID */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 35px;
+    max-width: 1050px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+.tool-card {
+    background: linear-gradient(135deg, #1b1b2f 0%, #252540 100%);
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255,78,205,0.25);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.tool-card img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 10px rgba(255,78,205,0.5));
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tool-card:hover img {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 20px rgba(255,78,205,0.8));
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: scale(1.2) rotate(5deg) translateY(0px); }
+    50% { transform: scale(1.2) rotate(5deg) translateY(-8px); }
+}
+
+.tool-card h3 {
+    color: #ff4ecd;
+    font-size: 19px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.tool-card:hover h3 {
+    color: #fff;
+    text-shadow: 0 0 15px #ff4ecd;
+    transform: scale(1.05);
+}
+
+.tool-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #ccc;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.tool-card:hover p { color: #fff; }
+
+/* FADE UP ANIMATION */
+@keyframes fadeUpTool {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE TOOLS */
+@media (max-width: 900px) {
+    .tools-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+}
+
+@media (max-width: 600px) {
+    .tools-grid { grid-template-columns: 1fr; gap: 25px; padding: 0 15px; }
+    .tool-card { padding: 30px 20px; min-height: 260px; }
+    .tool-card img { width: 60px; height: 60px; }
+    .tool-card h3 { font-size: 17px; }
+    .tool-card p { font-size: 13.5px; }
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: #090914;
+    padding: 20px;
+    text-align: center;
+    color: #aaa;
+}
+
+/* Achievements Image Hover Effect */
+.achievement-item img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #ff4ecd, 0 0 35px #7a4cff;
+}
+
+/* Achievements fade-in on page load */
+.achievement-item {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* Staggered animation delay para hindi sabay-sabay lahat */
+.achievement-item:nth-child(1) { animation-delay: 0.1s; }
+.achievement-item:nth-child(2) { animation-delay: 0.3s; }
+.achievement-item:nth-child(3) { animation-delay: 0.5s; }
+.achievement-item:nth-child(4) { animation-delay: 0.7s; }
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* =========================
+   INTRO / SPLASH SCREEN
+========================= */
+#intro-screen {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #ff4ecd, #7a4cff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    z-index: 9999;
+    animation: fadeOut 1s ease 4s forwards; /* auto fade out after 3s */
+    text-align: center;
+}
+
+#intro-screen .intro-content h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px #fff;
+    animation: fadeInUp 1s ease forwards;
+}
+
+#intro-screen .intro-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    animation: fadeInUp 1s ease 0.5s forwards;
+    opacity: 0;
+}
+
+#intro-screen .enter-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background: white;
+    color: #ff4ecd;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    animation: fadeInUp 1s ease 1s forwards;
+    opacity: 0;
+}
+
+#intro-screen .enter-btn:hover {
+    background: #ff4ecd;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #fff;
+}
+
+/* =========================
+   FADE & SLIDE ANIMATIONS
+========================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+/* OPTIONAL: Click to enter immediately */
+#intro-screen:active {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+/* IBIS PAINT SPECIFIC */
+.album-content.ibis .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 images per row */
+    gap: 25px;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* COLLAGE IMAGES */
+.more-gallery.collage {
+    margin-top: 30px;
+    display: none;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+#more-ibis:checked ~ .more-gallery {
+    display: block;
+}
+
+/* COLLAGE ROWS */
+.collage-row {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.collage-row.three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.collage-row.four {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* COLLAGE IMAGE STYLING */
+.collage-row img,
+.project-grid img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+.project-grid img:hover,
+.collage-row img:hover {
+    transform: scale(1.05) rotate(1deg);
+    box-shadow: 0 0 20px #ff4ecd;
+}
+
+/* STAGGERED FADE ANIMATION */
+.collage-row img {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#more-ibis:checked ~ .more-gallery img {
+    animation: fadeUpStagger 0.6s ease forwards;
+}
+
+@keyframes fadeUpStagger {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* LIGHTBOX (full image) */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 12px;
+    box-shadow: 0 0 30px #ff4ecd;
+}
+
+.lightbox:target {
+    display: flex;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+/* FADE UP ANIMATION */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   COMMENTS SECTION (LOCKED)
+========================= */
+
+#comments {
+    margin-top: 100px;
+    text-align: center;
+}
+
+.comments-note {
+    color: #aaa;
+    margin-bottom: 35px;
+    font-size: 14px;
+}
+
+/* 3 COLUMNS – GUARANTEED */
+.comments-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* IMAGES */
+.comments-grid img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* HOVER EFFECT */
+.comments-grid img:hover {
+    transform: scale(1.06);
+    box-shadow: 0 0 25px #ff4ecd;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .comments-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .comments-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================
+   NOTES ABOUT MY EDITS
+========================= */
+
+#edit-notes {
+    max-width: 850px;
+    margin: 100px auto 60px;
+    padding: 35px 30px;
+    background: linear-gradient(135deg, #1b1b2f, #252540);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255,78,205,0.25);
+}
+
+.edit-note {
+    color: #eee;
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: center;
+    animation: fadeUp 1s ease;
+}
+
